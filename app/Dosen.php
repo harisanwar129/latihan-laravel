@@ -21,4 +21,8 @@ class Dosen extends Model
         'nama',
         'keterangan'
     ];
+    public function mahasiswa(){
+        return $this->hasOne('App\Mahasiswa','nidn');
+        // return $this->hasOne('App\Mahasiswa','dosen_id')
+    }
 }

@@ -1,5 +1,6 @@
 <?php
-// use App\Dosen;
+use App\Dosen;
+use App\Mahasiswa;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,4 +102,9 @@ Route::get('/forceDelete',function(){
     // ->where('nidn','444')
     ->forceDelete();
 
+});
+//elequent relasitonship
+//one to one
+Route::get('dosen/mhs/{nidn}',function($nidn){
+    return Dosen::find($nidn)->mahasiswa;
 });
