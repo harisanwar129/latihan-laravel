@@ -11,4 +11,8 @@ class Mahasiswa extends Model
     protected $primaryKey='npm';
     public $incrementing=false;
     protected $keyType='char';
+    
+    public function dosen(){
+        return $this->belongsTo('App\Dosen','nidn');
+    }
 }
