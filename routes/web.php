@@ -212,14 +212,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //MANY TO MANY
 //CREATE
-Route::get('video/create',function(){
-$video=Video::create([
-    'title'=>'Video Ketiga',
-    'path'=>'myVideo_3.mp4'
-]);
-$tag=Tag::find(2);
-$video->tags()->save($tag);
-}); 
+// Route::get('video/create',function(){
+// $video=Video::create([
+//     'title'=>'Video Ketiga',
+//     'path'=>'myVideo_3.mp4'
+// ]);
+// $tag=Tag::find(2);
+// $video->tags()->save($tag);
+// }); 
 
 
 //#############################
@@ -228,17 +228,17 @@ $video->tags()->save($tag);
 //#############################
 //#############################
 //UPDATE
-Route::get('video/{video}/tag/{untag}/ganti/{tag}', function ($video, $untag, $tag) {
-    $video = Video::find($video);
-    $video->tags()->detach($untag);
-    $video->tags()->attach($tag);
-});
+// Route::get('video/{video}/tag/{untag}/ganti/{tag}', function ($video, $untag, $tag) {
+//     $video = Video::find($video);
+//     $video->tags()->detach($untag);
+//     $video->tags()->attach($tag);
+// });
 
 //DELETE
-Route::get('video/{video}/untag/{tag}', function ($video, $tag) {
-    $video = Video::find($video);
-    $video->tags()->detach($tag);
-});
+// Route::get('video/{video}/untag/{tag}', function ($video, $tag) {
+//     $video = Video::find($video);
+//     $video->tags()->detach($tag);
+// });
 
 // CRUD + MODAL
 Route::resource('dosen','DosenController');
