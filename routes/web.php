@@ -22,6 +22,7 @@ use App\Taggable;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/user/{name?}',function($name=null){
     if($name==null){
  return 'hello';
@@ -239,7 +240,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //     $video = Video::find($video);
 //     $video->tags()->detach($tag);
 // });
-
+Route::get('/', function () {
+    return view('welcome');
+});
 // CRUD + MODAL
 Route::resource('dosen','DosenController');
 Route::post('dosen/emptyAll','DosenController@emptyAll');
@@ -259,4 +262,19 @@ Route::get('/input', 'Latihan@input');
 
 Route::post('/proses', 'Latihan@proses');
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// auth admin
+Route::prefix('admin')->group(function(){
+    Route::get('/login','Auth\LoginController@showAdminLoginForm')->name('admin.login');
+    Route::post('/login','Auth\LoginController@adminLogin')->name('admin.login.submit');
+    Route::post('/logout','Auth\LoginController@logout')->name('admin.logout');
+
+    //dasbord
+    Route::get('/dasboard','Admin\HomeController@index')->name('admin.home');
+
+});
 

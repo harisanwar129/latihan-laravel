@@ -13,8 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        {{$user->name}} <br>
                     You are logged in!
+                    @if (Auth::guard('admin')->check())
+                    Anda login sebagai admin
+                    @elseif (Auth::guard('web')->check())
+                    Anda login sebagai User
+                    @endif
                 </div>
             </div>
         </div>

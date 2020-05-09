@@ -63,6 +63,9 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
+                                        @if(Auth::guard('admin')->check())
+                                        <input name="guard" type="hidden"  value="admin"/>
+                                        @endif
                                     </form>
                                 </div>
                             </li>
